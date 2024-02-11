@@ -32,6 +32,9 @@
         nav a:hover {
             color: #ff0;
         }
+        .hidden {
+            display: none;
+        }
         section {
             padding: 20px;
             margin: 20px;
@@ -45,20 +48,20 @@
 </header>
 
 <nav>
-    <a href="#">Home</a>
-    <a href="#">Downloads</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
+    <a href="#" onclick="showContent('welcome')">Home</a>
+    <a href="#" onclick="showContent('downloads')">Downloads</a>
+    <a href="#" onclick="showContent('about')">About</a>
+    <a href="#" onclick="showContent('contact')">Contact</a>
 </nav>
 
-<section>
+<section id="welcome">
     <h2>Welcome to Leak Hub</h2>
     <p>This is your one-stop destination for all your info/tools needs.</p>
     <p>Download the latest tools and info resources to unleash your full potential.</p>
     <p>Stay tuned for updates and new releases!</p>
 </section>
 
-<section>
+<section id="downloads" class="hidden">
     <h2>Downloads</h2>
     <p>Download the latest leaks:</p>
     <ul>
@@ -68,7 +71,7 @@
     </ul>
 </section>
 
-<section>
+<section id="about" class="hidden">
     <h2>About</h2>
     <p>About Leak Hub:</p>
     <p>
@@ -82,11 +85,25 @@
     <p>Fivem logs they include info connected to user accounts including: licenses, XBL Logins, Discord Tokens, IPs...
 </section>
 
-<section>
+<section id="contact" class="hidden">
     <h2>Contact</h2>
     <p>Contact us:</p>
     <p>Owner Discord: classified.exe</p>
 </section>
+
+<script>
+    function showContent(sectionId) {
+        // Hide all sections
+        var sections = document.querySelectorAll('section');
+        sections.forEach(function(section) {
+            section.classList.add('hidden');
+        });
+        
+        // Show the selected section
+        var selectedSection = document.getElementById(sectionId);
+        selectedSection.classList.remove('hidden');
+    }
+</script>
 
 </body>
 </html>
