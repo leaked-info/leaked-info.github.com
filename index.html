@@ -23,14 +23,32 @@
             text-align: center;
         }
         nav a {
-            color: #0f0;
+            color: #000; /* Black color for all links */
             text-decoration: none;
             padding: 10px;
             margin: 0 5px;
             font-size: 18px;
+            position: relative;
+            display: inline-block;
         }
-        nav a:hover {
-            color: ##000000;
+        nav a:hover::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border-radius: 10px;
+            border: 2px solid #0f0;
+            animation: glow 0.5s infinite alternate; /* Add glow animation */
+        }
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px #0f0;
+            }
+            to {
+                box-shadow: 0 0 20px #0f0;
+            }
         }
         .hidden {
             display: none;
@@ -56,7 +74,6 @@
 
 <section id="welcome">
     <h2>Welcome to Leak Hub</h2>
-    <p>‎ 
     <p>This is your one-stop destination for all your info/tools needs.</p>
     <p>Download the latest tools and info resources to unleash your full potential.</p>
     <p>Stay tuned for updates and new releases!</p>
@@ -75,15 +92,13 @@
 <section id="about" class="hidden">
     <h2>About</h2>
     <p>About Leak Hub:</p>
-    <p>‎ 
-    <p>Leaked Tools:
-    <p>We are a platform dedicated to providing you with the latest tool leaks and information including: 
-    <p>IP Grabbers from logs off of platforms like discord, steam, fivem, telegram ect...
-    <p>Doxxing tools for infortmation gathering on victims.
-    <p>Leaked BotNets for ddos attacks. ( make sure to read the readme.txt in the file )
-    <p>‎ 
-    <p>Leaked Information:
-    <p>Fivem logs they include info connected to user accounts including: licenses, XBL Logins, Discord Tokens, IPs...
+    <p>Leaked Tools:</p>
+    <p>We are a platform dedicated to providing you with the latest tool leaks and information including:</p>
+    <p>IP Grabbers from logs off of platforms like discord, steam, fivem, telegram ect...</p>
+    <p>Doxxing tools for information gathering on victims.</p>
+    <p>Leaked BotNets for ddos attacks. (make sure to read the readme.txt in the file)</p>
+    <p>Leaked Information:</p>
+    <p>Fivem logs they include info connected to user accounts including: licenses, XBL Logins, Discord Tokens, IPs...</p>
 </section>
 
 <section id="contact" class="hidden">
