@@ -7,12 +7,10 @@
     <title>Doxbin | Checking Browser</title>
     <style>
         /* Loading screen styles */
-        body {
-            background-color: #060606;
-            margin: 0;
-            font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        }
-
+        body.loading #main-content { display: none; }
+        body.loading .pulsating-circle,
+        body.loading .pulsating-circle2,
+        body.loading pre { display: block; }
         .center-screen {
             display: flex;
             flex-direction: column;
@@ -29,26 +27,9 @@
             text-align: center;
         }
 
-        .pulsating-circle {
-            position: absolute;
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            background-color: #373737;
-            opacity: 0.1;
-            animation: pulse 1s infinite;
-            z-index: 2;
-        }
-
+        .pulsating-circle,
         .pulsating-circle2 {
-            position: absolute;
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            background-color: #0e0e0e;
-            animation: pulse2 1s infinite;
-            z-index: 1;
-            opacity: 0.1;
+            display: none;
         }
 
         @keyframes pulse {
@@ -141,11 +122,45 @@
             margin: 20px;
         }
     </style>
+<script>
+var DOMReady = function(callback)
+{
+    var b=document;
+    var c='addEventListener';
+    b[c] ? b[c] ('DOMContentLoaded', callback) : window.attachEvent('onload',callback);
+}
+
+var loadScript = function(src, id)
+{
+    var s = document.createElement("script");
+    s.type = "text/javascript";
+    s.src = src;
+    if (typeof id === 'string' && id !== ''){
+        s.id = id;
+    }
+
+    var head = document.getElementsByTagName("head")[0];
+    (head || document.body).appendChild(s);
+}
+
+DOMReady(function ()
+{
+    document.body.classList.add('loading'); // Add loading class
+    loadScript("/.well-known/ddos-guard/check?context=free_splash", 'ddg_script_f');
+    loadScript("https://check.ddos-guard.net/check.js");
+});
+
+// Function to remove loading class
+function removeLoading() {
+    document.body.classList.remove('loading');
+    document.getElementById('main-content').style.display = 'block';
+}
+</script>
 </head>
 <body class="center-screen" cz-shortcut-listen="true">
     <div class="pulsating-circle"></div>
     <div class="pulsating-circle2"></div>
-    <pre style="font: 1px/0.5px monospace; overflow-x: hidden; overflow-y: hidden; border: none; fill: #373737; color: white; z-index: 3">                                             .                                                                                          .                                            
+    <pre style="font: 1px/0.5px monospace; overflow-x: hidden; overflow-y: hidden; border: none; fill: #373737; color: white; z-index: 3">                                             .                                                                                          .                                                                                     
                                             .#                                                                                          #.                                           
                                            #@@                                                                                          @@#                                          
                                           @@@@                                                                                          @@@@                                         
@@ -359,6 +374,17 @@
                                                                               `@@@@@@@@@@@@@@@@@@@@@@@;                                                                              
                                                                                 `@@@@@@@@@@@@@@@@@@@:                                                                                
                                                                                    `;@@@@@@@@@@@#.                                                                                 
+</pre>
+
+<!-- Main content -->
+<div id="main-content">
+    <header>
+        <h1>Leak Hub</h1>
+    </header>
+
+    <nav>
+        <
+
 </pre>
 
 <!-- Main content -->
