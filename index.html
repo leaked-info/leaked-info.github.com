@@ -7,7 +7,7 @@
     <style>
         /* CSS styles for the hacker-themed design */
         body {
-            background-color: #000;
+            background-color: #060606; /* Updated background color */
             color: #0f0;
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
@@ -21,7 +21,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #000;
+            background-color: #060606; /* Updated background color */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -83,16 +83,18 @@
             margin: 20px;
         }
         /* Interactive animations */
-        @keyframes slideInFromLeft {
+        @keyframes slideIn {
             0% {
-                transform: translateX(-100%);
+                transform: translateY(50%) scale(0.5) rotate(-20deg);
+                opacity: 0;
             }
             100% {
-                transform: translateX(0);
+                transform: translateY(0) scale(1) rotate(0deg);
+                opacity: 1;
             }
         }
         .animated {
-            animation: slideInFromLeft 1s ease-in-out;
+            animation: slideIn 0.5s ease-out;
         }
     </style>
 </head>
