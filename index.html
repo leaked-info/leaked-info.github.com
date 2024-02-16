@@ -50,7 +50,7 @@
             padding: 10px;
             margin: 0 5px;
             font-size: 20px;
-            font-weight: bold; /* Make the text bolder */
+            font-weight: 900; /* Make the text even bolder */
             position: relative;
             display: inline-block;
         }
@@ -82,6 +82,23 @@
             padding: 20px;
             margin: 20px;
         }
+        /* Footer */
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer p {
+            margin: 0;
+        }
+        footer img {
+            width: 150px; /* Adjust the width of the image */
+            margin-top: 20px; /* Add some spacing between the text and the image */
+        }
     </style>
 </head>
 <body>
@@ -102,16 +119,18 @@
     <p>This is your one-stop destination for all your info/tools needs.</p>
     <p>Download the latest tools and info resources to unleash your full potential.</p>
     <p>Stay tuned for updates and new releases!</p>
+    <img src="home_image.jpg" alt="Home Image">
 </section>
 
 <section id="downloads" class="hidden">
     <h2>Downloads</h2>
-    <p>Download the latest leaks:⤵</p>
+    <p>Download the latest leaks:</p>
     <ul>
         <li>Leak 1</li>
         <li>Leak 2</li>
         <li>Leak 3</li>
     </ul>
+    <img src="downloads_image.jpg" alt="Downloads Image">
 </section>
 
 <section id="about" class="hidden">
@@ -125,13 +144,19 @@
     <p> ‎ 
     <p>Leaked Information:⤵</p>
     <p>• Fivem logs they include info connected to user accounts including: licenses, XBL Logins, Discord Tokens, IPs...</p>
+    <img src="about_image.jpg" alt="About Image">
 </section>
 
 <section id="contact" class="hidden">
     <h2>Contact</h2>
-    <p>Contact us:⤵</p>
+    <p>Contact us:</p>
     <p>Owner Discord: classified.exe</p>
+    <img src="contact_image.jpg" alt="Contact Image">
 </section>
+
+<footer>
+    <p>&copy; 2024 Leak Hub. All rights reserved.</p>
+</footer>
 
 <script>
     // Show home section by default
