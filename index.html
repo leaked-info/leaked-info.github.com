@@ -82,20 +82,6 @@
             padding: 20px;
             margin: 20px;
         }
-        /* Interactive animations */
-        @keyframes slideIn {
-            0% {
-                transform: translateY(50%) scale(0.5) rotate(-20deg);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0) scale(1) rotate(0deg);
-                opacity: 1;
-            }
-        }
-        .animated {
-            animation: slideIn 0.5s ease-out;
-        }
     </style>
 </head>
 <body>
@@ -116,7 +102,7 @@
     <a href="#" onclick="showContent('contact')">Contact</a>
 </nav>
 
-<section id="welcome" class="animated hidden">
+<section id="welcome" class="hidden">
     <h2>Welcome to Leak Hub</h2>
     <p>This is your one-stop destination for all your info/tools needs.</p>
     <p>Download the latest tools and info resources to unleash your full potential.</p>
@@ -169,7 +155,6 @@
         // Show the selected section
         var selectedSection = document.getElementById(sectionId);
         selectedSection.classList.remove('hidden');
-        selectedSection.classList.add('animated'); // Add animation class
     }
 </script>
 
