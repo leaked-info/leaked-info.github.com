@@ -14,6 +14,7 @@
             padding: 0;
             overflow-x: hidden; /* Hide horizontal scrollbar */
         }
+        /* Loading screen */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -32,22 +33,24 @@
             opacity: 0;
             pointer-events: none;
         }
+        /* Header */
         header {
             text-align: center;
             padding: 20px;
         }
+        /* Navigation */
         nav {
-            background-color: #dd0000; /* Updated color for the red bar */
+            background-color: #dd0000;
             padding: 10px;
             text-align: center;
         }
         nav a {
-            color: #000; /* Black color for all links */
+            color: #000;
             text-decoration: none;
             padding: 10px;
             margin: 0 5px;
-            font-size: 20px; /* Increased font size for the options */
-            font-weight: bold; /* Make the text thicker */
+            font-size: 20px;
+            font-weight: bold;
             position: relative;
             display: inline-block;
         }
@@ -59,28 +62,43 @@
             top: 0;
             left: 0;
             border-radius: 10px;
-            border: 2px solid #dd0000; /* Updated color for the glow */
-            animation: glow 0.5s infinite alternate; /* Add glow animation */
+            border: 2px solid #dd0000;
+            animation: glow 0.5s infinite alternate;
         }
         @keyframes glow {
             from {
-                box-shadow: 0 0 10px #dd0000; /* Updated color for the glow */
+                box-shadow: 0 0 10px #dd0000;
             }
             to {
-                box-shadow: 0 0 20px #dd0000; /* Updated color for the glow */
+                box-shadow: 0 0 20px #dd0000;
             }
         }
+        /* Hidden class */
         .hidden {
             display: none;
         }
+        /* Sections */
         section {
             padding: 20px;
             margin: 20px;
+        }
+        /* Interactive animations */
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        .animated {
+            animation: slideInFromLeft 1s ease-in-out;
         }
     </style>
 </head>
 <body>
 
+<!-- Loading screen -->
 <div class="loading-screen">
     <h1>Loading...</h1>
 </div>
@@ -96,7 +114,7 @@
     <a href="#" onclick="showContent('contact')">Contact</a>
 </nav>
 
-<section id="welcome">
+<section id="welcome" class="animated hidden">
     <h2>Welcome to Leak Hub</h2>
     <p>This is your one-stop destination for all your info/tools needs.</p>
     <p>Download the latest tools and info resources to unleash your full potential.</p>
@@ -132,11 +150,13 @@
 </section>
 
 <script>
+    // Hide loading screen when page is fully loaded
     window.addEventListener('load', function() {
         var loadingScreen = document.querySelector('.loading-screen');
         loadingScreen.classList.add('hide');
     });
 
+    // Show content function
     function showContent(sectionId) {
         // Hide all sections
         var sections = document.querySelectorAll('section');
@@ -147,6 +167,7 @@
         // Show the selected section
         var selectedSection = document.getElementById(sectionId);
         selectedSection.classList.remove('hidden');
+        selectedSection.classList.add('animated'); // Add animation class
     }
 </script>
 
