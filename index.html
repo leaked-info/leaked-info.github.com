@@ -40,7 +40,7 @@
         }
         /* Navigation */
         nav {
-            background-color: #dd0000;
+            background-color: #ba0000; /* Updated color for the red bar */
             padding: 10px;
             text-align: center;
         }
@@ -62,15 +62,15 @@
             top: 0;
             left: 0;
             border-radius: 10px;
-            border: 2px solid #dd0000;
+            border: 2px solid #ba0000; /* Updated color for the glow */
             animation: glow 0.5s infinite alternate;
         }
         @keyframes glow {
             from {
-                box-shadow: 0 0 10px #dd0000;
+                box-shadow: 0 0 10px #ba0000; /* Updated color for the glow */
             }
             to {
-                box-shadow: 0 0 20px #dd0000;
+                box-shadow: 0 0 20px #ba0000; /* Updated color for the glow */
             }
         }
         /* Hidden class */
@@ -86,11 +86,6 @@
 </head>
 <body>
 
-<!-- Loading screen -->
-<div class="loading-screen">
-    <h1>Loading...</h1>
-</div>
-
 <header>
     <h1>Leak Hub</h1>
 </header>
@@ -102,7 +97,7 @@
     <a href="#" onclick="showContent('contact')">Contact</a>
 </nav>
 
-<section id="welcome" class="hidden">
+<section id="welcome">
     <h2>Welcome to Leak Hub</h2>
     <p>This is your one-stop destination for all your info/tools needs.</p>
     <p>Download the latest tools and info resources to unleash your full potential.</p>
@@ -138,11 +133,9 @@
 </section>
 
 <script>
-    // Hide loading screen when page is fully loaded
-    window.addEventListener('load', function() {
-        var loadingScreen = document.querySelector('.loading-screen');
-        loadingScreen.classList.add('hide');
-        showContent('welcome'); // Show home section by default
+    // Show home section by default
+    document.addEventListener("DOMContentLoaded", function() {
+        showContent('welcome');
     });
 
     // Show content function
