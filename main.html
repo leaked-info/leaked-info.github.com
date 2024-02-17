@@ -182,8 +182,6 @@
     // Show home section by default
     document.addEventListener("DOMContentLoaded", function() {
         showContent('welcome');
-        // Hide loading screen
-        document.querySelector('.loading-screen').classList.add('hide');
     });
 
     // Show content function
@@ -199,10 +197,9 @@
         selectedSection.classList.remove('hidden');
     }
 
-    // Show privacy section function
-    function showPrivacy() {
-        var privacySection = document.getElementById('privacy');
-        privacySection.classList.remove('hidden');
+    // Rewrite the URL without main.html
+    if (window.history.replaceState) {
+        window.history.replaceState({}, document.title, "/");
     }
 </script>
 
