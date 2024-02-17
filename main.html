@@ -54,26 +54,6 @@
             position: relative;
             display: inline-block;
         }
-        /* Removed the circle effect on hover */
-        /* nav a:hover::after {
-            content: '';
-            position: absolute;
-            width: calc(100% - 30px);
-            height: calc(100% - 30px);
-            top: 15px;
-            left: 15px;
-            border-radius: 10px;
-            border: 2px solid #ba0000; 
-            animation: glow 0.5s infinite alternate;
-        }
-        @keyframes glow {
-            from {
-                box-shadow: 0 0 10px #ba0000; 
-            }
-            to {
-                box-shadow: 0 0 20px #ba0000; 
-            }
-        } */
         /* Hidden class */
         .hidden {
             display: none;
@@ -105,11 +85,6 @@
             max-width: 100%; /* Adjust the width of the image */
             height: auto;
             margin-top: 20px; /* Add some spacing between the text and the image */
-        }
-
-        /* Style for "here" button */
-        #privacyInfo a {
-            color: #BA0000;
         }
     </style>
 </head>
@@ -182,6 +157,8 @@
     // Show home section by default
     document.addEventListener("DOMContentLoaded", function() {
         showContent('welcome');
+        // Hide loading screen when the page is fully loaded
+        document.querySelector('.loading-screen').classList.add('hide');
     });
 
     // Show content function
