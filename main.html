@@ -179,11 +179,17 @@
 </footer>
 
 <script>
+    // Add a class to the body indicating that the script is executing
+    document.body.classList.add('script-executing');
+
     // Show home section by default
     document.addEventListener("DOMContentLoaded", function() {
-        showContent('welcome');
-        // Hide loading screen
+        // Hide the loading screen
         document.querySelector('.loading-screen').classList.add('hide');
+        // Remove the class indicating script execution
+        document.body.classList.remove('script-executing');
+        // Show the home section
+        showContent('welcome');
         // Update URL without reloading the page
         history.replaceState({}, document.title, "/");
     });
