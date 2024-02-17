@@ -183,7 +183,7 @@
     document.addEventListener("DOMContentLoaded", function() {
         showContent('welcome');
         // Hide loading screen
-        document.querySelector('.loading-screen').classList.add('hide');
+        // Code to hide loading screen
     });
 
     // Show content function
@@ -199,11 +199,18 @@
         selectedSection.classList.remove('hidden');
     }
 
-    // Rewrite the URL without main.html if it's present
-    if (window.location.href.indexOf("main.html") !== -1) {
-        var newUrl = window.location.href.replace("main.html", "");
-        window.history.replaceState({}, document.title, newUrl);
-    }
+    // Check if already redirected
+    document.addEventListener("DOMContentLoaded", function() {
+        var redirected = sessionStorage.getItem("redirected");
+        if (redirected) {
+            // If already redirected, don't redirect again
+            sessionStorage.removeItem("redirected");
+        } else {
+            // Redirect to the main page
+            sessionStorage.setItem("redirected", "true");
+            window.location.href = "/";
+        }
+    });
 </script>
 
 </body>
