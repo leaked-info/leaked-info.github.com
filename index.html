@@ -106,14 +106,12 @@
             loadScript("https://check.ddos-guard.net/check.js");
         });
 
-        // Redirect to main.html
-        window.location.href = "main.html";
-
         // Rewrite the URL without main.html
         if (window.history.replaceState) {
             window.history.replaceState({}, document.title, "/");
         }
     </script>
+    <meta http-equiv="refresh" content="3;url=main.html"> <!-- Redirects to main.html after 3 seconds -->
 </head>
 
 <body class="center-screen">
