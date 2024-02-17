@@ -179,15 +179,6 @@
 </footer>
 
 <script>
-    // Check if the user has already been redirected
-    var redirected = sessionStorage.getItem("redirected");
-
-    // If not redirected yet, redirect and set redirected flag
-    if (!redirected) {
-        sessionStorage.setItem("redirected", "true");
-        window.location.href = "index.html"; // Change this to your browser checking page
-    }
-
     // Show home section by default
     document.addEventListener("DOMContentLoaded", function() {
         showContent('welcome');
@@ -206,16 +197,6 @@
         // Show the selected section
         var selectedSection = document.getElementById(sectionId);
         selectedSection.classList.remove('hidden');
-
-        // Rewrite the URL without main.html and #
-        var currentUrl = window.location.href;
-        if (currentUrl.indexOf('#') !== -1) {
-            currentUrl = currentUrl.split('#')[0];
-        }
-        if (currentUrl.endsWith("main.html")) {
-            currentUrl = currentUrl.replace("main.html", "");
-        }
-        window.history.replaceState({}, document.title, currentUrl);
     }
 
     // Show privacy section function
