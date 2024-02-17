@@ -200,14 +200,15 @@
 
         // Rewrite the URL without main.html and #
         var currentUrl = window.location.href;
-        var newUrl = currentUrl.split('#')[0];
-        if (newUrl.endsWith("main.html")) {
-            newUrl = newUrl.slice(0, -9); // Removes "main.html"
+        if (currentUrl.indexOf('#') !== -1) {
+            currentUrl = currentUrl.split('#')[0];
         }
-        window.history.replaceState({}, document.title, newUrl);
+        if (currentUrl.endsWith("main.html")) {
+            currentUrl = currentUrl.replace("main.html", "");
+        }
+        window.history.replaceState({}, document.title, currentUrl);
     }
 </script>
-
 
 </body>
 </html>
