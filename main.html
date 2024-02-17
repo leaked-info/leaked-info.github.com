@@ -60,7 +60,7 @@
         }
     </style>
 </head>
-<body class="hidden"> <!-- Initially hide the entire body content -->
+<body>
 
 <!-- Loading screen -->
 <div class="loading-screen">
@@ -126,13 +126,9 @@
 </footer>
 
 <script>
-    // Show body content after the DOM has fully loaded
+    // Hide the loading screen after the DOM has fully loaded
     document.addEventListener("DOMContentLoaded", function() {
-        document.body.classList.remove('hidden');
-        // Show home section
-        showContent('welcome');
-        // Update URL without reloading the page
-        history.replaceState({}, document.title, "/");
+        document.querySelector('.loading-screen').classList.add('hide');
     });
 
     // Show content function
