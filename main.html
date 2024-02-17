@@ -197,9 +197,10 @@
         selectedSection.classList.remove('hidden');
     }
 
-    // Rewrite the URL without main.html
-    if (window.history.replaceState) {
-        window.history.replaceState({}, document.title, "/");
+    // Rewrite the URL without main.html if it's present
+    if (window.location.href.indexOf("main.html") !== -1) {
+        var newUrl = window.location.href.replace("main.html", "");
+        window.history.replaceState({}, document.title, newUrl);
     }
 </script>
 
