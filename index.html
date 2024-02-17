@@ -176,4 +176,35 @@
 
 <footer>
     <p>&copy; 2024 Leak Hub. All rights reserved.</p>
-</footer
+</footer>
+
+<script>
+    // Show home section by default
+    document.addEventListener("DOMContentLoaded", function() {
+        showContent('welcome');
+        // Hide loading screen
+        document.querySelector('.loading-screen').classList.add('hide');
+    });
+
+    // Show content function
+    function showContent(sectionId) {
+        // Hide all sections
+        var sections = document.querySelectorAll('section');
+        sections.forEach(function(section) {
+            section.classList.add('hidden');
+        });
+        
+        // Show the selected section
+        var selectedSection = document.getElementById(sectionId);
+        selectedSection.classList.remove('hidden');
+    }
+
+    // Show privacy section function
+    function showPrivacy() {
+        var privacySection = document.getElementById('privacy');
+        privacySection.classList.remove('hidden');
+    }
+</script>
+
+</body>
+</html>
