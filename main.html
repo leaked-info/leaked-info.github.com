@@ -184,27 +184,29 @@
         showContent('welcome');
         // Hide loading screen
         document.querySelector('.loading-screen').classList.add('hide');
+        // Update URL without reloading the page
+        history.replaceState({}, document.title, "/");
     });
 
+    // Show content function
+    function showContent(sectionId) {
+        // Hide all sections
+        var sections = document.querySelectorAll('section');
+        sections.forEach(function(section) {
+            section.classList.add('hidden');
+        });
+        
         // Show the selected section
         var selectedSection = document.getElementById(sectionId);
         selectedSection.classList.remove('hidden');
-
-        // Rewrite the URL without main.html and #
-        var currentUrl = window.location.href;
-        if (currentUrl.indexOf('#') !== -1) {
-            currentUrl = currentUrl.split('#')[0];
-        }
-        if (currentUrl.endsWith("main.html")) {
-            currentUrl = currentUrl.replace("main.html", "");
-        }
-        window.history.replaceState({}, document.title, currentUrl);
     }
 
     // Show privacy section function
     function showPrivacy() {
         var privacySection = document.getElementById('privacy');
         privacySection.classList.remove('hidden');
+        // Update URL without reloading the page
+        history.pushState({}, document.title, "/privacy");
     }
 </script>
 
