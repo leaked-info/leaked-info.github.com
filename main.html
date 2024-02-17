@@ -199,10 +199,11 @@
         selectedSection.classList.remove('hidden');
 
         // Rewrite the URL without main.html and #
-        var newUrl = window.location.href.replace("main.html", "").replace("#", "");
+        var newUrl = window.location.href.replace("main.html", "").split('#')[0];
         window.history.replaceState({}, document.title, newUrl);
     }
 </script>
+
 
 </body>
 </html>
