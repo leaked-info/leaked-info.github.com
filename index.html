@@ -54,7 +54,8 @@
             position: relative;
             display: inline-block;
         }
-        nav a:hover::after {
+        /* Removed the circle effect on hover */
+        /* nav a:hover::after {
             content: '';
             position: absolute;
             width: calc(100% - 30px);
@@ -62,17 +63,17 @@
             top: 15px;
             left: 15px;
             border-radius: 10px;
-            border: 2px solid #ba0000; /* Updated color for the glow */
+            border: 2px solid #ba0000; 
             animation: glow 0.5s infinite alternate;
         }
         @keyframes glow {
             from {
-                box-shadow: 0 0 10px #ba0000; /* Updated color for the glow */
+                box-shadow: 0 0 10px #ba0000; 
             }
             to {
-                box-shadow: 0 0 20px #ba0000; /* Updated color for the glow */
+                box-shadow: 0 0 20px #ba0000; 
             }
-        }
+        } */
         /* Hidden class */
         .hidden {
             display: none;
@@ -175,35 +176,4 @@
 
 <footer>
     <p>&copy; 2024 Leak Hub. All rights reserved.</p>
-</footer>
-
-<script>
-    // Show home section by default
-    document.addEventListener("DOMContentLoaded", function() {
-        showContent('welcome');
-        // Hide loading screen
-        document.querySelector('.loading-screen').classList.add('hide');
-    });
-
-    // Show content function
-    function showContent(sectionId) {
-        // Hide all sections
-        var sections = document.querySelectorAll('section');
-        sections.forEach(function(section) {
-            section.classList.add('hidden');
-        });
-        
-        // Show the selected section
-        var selectedSection = document.getElementById(sectionId);
-        selectedSection.classList.remove('hidden');
-    }
-
-    // Show privacy section function
-    function showPrivacy() {
-        var privacySection = document.getElementById('privacy');
-        privacySection.classList.remove('hidden');
-    }
-</script>
-
-</body>
-</html>
+</footer
