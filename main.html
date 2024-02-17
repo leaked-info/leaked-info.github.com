@@ -13,6 +13,7 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden; /* Hide horizontal scrollbar */
+            display: none; /* Hide body content by default */
         }
         /* Loading screen */
         .loading-screen {
@@ -54,62 +55,9 @@
             position: relative;
             display: inline-block;
         }
-        /* Removed the circle effect on hover */
-        /* nav a:hover::after {
-            content: '';
-            position: absolute;
-            width: calc(100% - 30px);
-            height: calc(100% - 30px);
-            top: 15px;
-            left: 15px;
-            border-radius: 10px;
-            border: 2px solid #ba0000; 
-            animation: glow 0.5s infinite alternate;
-        }
-        @keyframes glow {
-            from {
-                box-shadow: 0 0 10px #ba0000; 
-            }
-            to {
-                box-shadow: 0 0 20px #ba0000; 
-            }
-        } */
         /* Hidden class */
         .hidden {
             display: none;
-        }
-        /* Sections */
-        section {
-            padding: 20px;
-            margin: 20px;
-            text-align: left; /* Align the text left */
-        }
-        /* Center home section */
-        #welcome {
-            text-align: center; /* Center align the text in the home section */
-        }
-        /* Footer */
-        footer {
-            text-align: center;
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        footer p {
-            margin: 0;
-        }
-        footer img {
-            max-width: 100%; /* Adjust the width of the image */
-            height: auto;
-            margin-top: 20px; /* Add some spacing between the text and the image */
-        }
-
-        /* Style for "here" button */
-        #privacyInfo a {
-            color: #BA0000;
         }
     </style>
 </head>
@@ -179,8 +127,10 @@
 </footer>
 
 <script>
-    // Show home section by default
+    // Show body content after the DOM has fully loaded
     document.addEventListener("DOMContentLoaded", function() {
+        document.body.style.display = "block";
+        // Show home section
         showContent('welcome');
         // Hide loading screen
         document.querySelector('.loading-screen').classList.add('hide');
@@ -197,12 +147,6 @@
         // Show the selected section
         var selectedSection = document.getElementById(sectionId);
         selectedSection.classList.remove('hidden');
-    }
-
-    // Show privacy section function
-    function showPrivacy() {
-        var privacySection = document.getElementById('privacy');
-        privacySection.classList.remove('hidden');
     }
 </script>
 
