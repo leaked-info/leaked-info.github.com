@@ -164,8 +164,13 @@
     <p>• Fivem logs they include info connected to user accounts including: licenses, XBL Logins, Discord Tokens, IPs...</p>
     <p> ‎ 
     <p><u>The legality of Leak Hub</u>:⤵
-    <p>     Detailed legality/GDPR Information can be found <a href="privacy.html" style="color: #BA0000;">here</a>.</p>
+    <p>     Detailed legality/GDPR Information can be found <a href="#" onclick="showContent('privacy')" style="color: #BA0000;">here</a>.</p>
 
+</section>
+
+<section id="privacy" class="hidden">
+    <h2>Privacy Policy</h2>
+    <p>Your privacy is important to us. You can read our privacy policy <a href="privacy.html" style="color: #BA0000;">here</a>.</p>
 </section>
 
 <section id="contact" class="hidden">
@@ -181,7 +186,14 @@
 <script>
     // Show home section by default
     document.addEventListener("DOMContentLoaded", function() {
-        showContent('welcome');
+        // Check if there is an anchor in the URL and show the corresponding section
+        var anchor = window.location.hash.substr(1);
+        if (anchor) {
+            showContent(anchor);
+        } else {
+            showContent('welcome');
+        }
+        
         // Hide loading screen
         document.querySelector('.loading-screen').classList.add('hide');
     });
