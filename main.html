@@ -125,10 +125,10 @@
 </header>
 
 <nav>
-    <a href="#welcome" onclick="showContent('welcome')">Home</a>
-    <a href="#downloads" onclick="showContent('downloads')">Downloads</a>
-    <a href="#about" onclick="showContent('about')">About</a>
-    <a href="#contact" onclick="showContent('contact')">Contact</a>
+    <a href="/welcome" onclick="showContent('welcome')">Home</a>
+    <a href="/downloads" onclick="showContent('downloads')">Downloads</a>
+    <a href="/about" onclick="showContent('about')">About</a>
+    <a href="/contact" onclick="showContent('contact')">Contact</a>
 </nav>
 
 <section id="welcome" class="hidden" style="text-align: center;">
@@ -197,12 +197,12 @@
         // Show the selected section
         var selectedSection = document.getElementById(sectionId);
         selectedSection.classList.remove('hidden');
-    }
 
-    // Show privacy section function
-    function showPrivacy() {
-        var privacySection = document.getElementById('privacy');
-        privacySection.classList.remove('hidden');
+        // Rewrite the URL without main.html if it's present
+        if (window.location.href.indexOf("main.html") !== -1) {
+            var newUrl = window.location.href.replace("main.html", "");
+            window.history.replaceState({}, document.title, newUrl);
+        }
     }
 </script>
 
